@@ -1,95 +1,26 @@
 #include <stdio.h>
 
-int main(){
+// Função para mover as peças
+void mover (char nome[], char direcao[]) {
+    //nome = nome da peça
+    int movimento, movpecas;
 
-    int torre, movtorre, escolha;
-    int dama, movdama, escolha1;
-    int bispo, movbispo, escolha2;
-    char escolha0;
-    int cavalo, movcavalo, escolha3;
+    printf("quantas casas, %s deve se mover: ", nome);
+    scanf("%d", &movpecas);
 
-    do {
-    //teste
-    printf("\nqual peça vc deseja mover.\n");
-    printf("S: sair\n");
-    printf("D: dama\n");
-    printf("B: bispo\n");
-    printf("T: torre\n");
-    printf("C. Cavalo\n");
-    printf("Escolha S, D, B ou T:");
-    scanf("%s", &escolha0);
-
-    switch (escolha0) {
-        //Opção de saida
-    case 'S':
-    case 's':
-        printf("Voce escolheu sair!!");
-        break;
-        //Opção de movimentar a torre
-    case 'T':
-    case 't':
-    do {
-    printf("\nEscolha qual movimento vc quer que sua torre faça.\n");
-    printf("0: Voltar ao menu de escolha.\n");
-    printf("1: Frente.\n");
-    printf("2: Tras\n");
-    printf("3: Esquerda\n");
-    printf("4: Direita\n");
-    printf("Digite (0, 1, 2, 3 ou 4)\n");
-    scanf("%d", &escolha);
-
-    switch (escolha)
+    for ( movimento = 1; movimento <= movpecas; movimento++)
     {
-    case 0: 
-        printf("\nVoltando ao menu de escolha...\n");
-        break;
-    case 1:
-        printf("Quantas casas sua torre deve andar\n");
-        scanf("%d", &movtorre);
-
-        for (torre = 1; torre <= movtorre; torre++)
-        {
-            printf("Torre se moveu para frente %dx\n", torre);
-        }        
-        break;
-    case 2:
-        printf("Quantas casas sua torre deve andar\n");
-        scanf("%d", &movtorre);
-
-        for (torre = 1; torre <= movtorre; torre++)
-        {
-            printf("Torre se moveu para traz %dx\n", torre);
-        }
-        break;
-    case 3:
-        printf("Quantas casas sua torre deve andar\n");
-        scanf("%d", &movtorre);
-
-        for (torre = 1; torre <= movtorre; torre++)
-        {
-            printf("Torre se moveu para esquerda %dx\n", torre);
-        }
-        break;
-    case 4:
-        printf("Quantas casas sua torre deve andar\n");
-        scanf("%d", &movtorre);
-
-        for (torre = 1; torre <= movtorre; torre++)
-        {
-            printf("Torre se moveu para direita %dx\n", torre);
-        }
-        break;
-    default:
-            printf("Opção invalida.\n");
-        break;
+        printf("%s se moveu para %s %dx\n", nome, direcao, movimento);
     }
+}
 
-     } while (escolha < 0 || escolha > 4);
-        break;
-        //Opção para movimentar a dama
-    case 'D':
-    case 'd':
-    do {
+//##### MENU DAMA #####
+void dama () {
+    // variaveis criadas dentro de um void so existem dentro delas, por isso podem ser repetidas.
+    int escolha;
+
+    do
+    {
     printf("\nEscolha qual movimento vc quer que sua dama faça.\n");
     printf("0: Voltar ao menu de escolha.\n");
     printf("1: Frente.\n");
@@ -101,96 +32,57 @@ int main(){
     printf("7: diagonal baixo, direita\n");
     printf("8: diagonal baixo, esquerda\n");
     printf("Digite (0, 1, 2, 3, 4, 5, 6, 7 ou 8)\n");
-    scanf("%d", &escolha1);
+    scanf("%d", &escolha);
 
-    switch (escolha1)
+    switch (escolha)
     {
-    case 0: 
-        printf("\nVoltando ao menu de escolha...\n");
-        break;
-    case 1:
-        printf("Quantas casas sua dama deve andar\n");
-        scanf("%d", &movdama);
-
-        for (dama = 1; dama <= movdama; dama++)
-        {
-            printf("Dama se moveu para frente %dx\n", dama);
-        }        
-        break;
-    case 2:
-        printf("Quantas casas sua Dama deve andar\n");
-        scanf("%d", &movdama);
-
-        for (dama = 1; dama <= movdama; dama++)
-        {
-            printf("Dama se moveu para traz %dx\n", dama);
-        }
-        break;
-    case 3:
-        printf("Quantas casas sua dama deve andar\n");
-        scanf("%d", &movdama);
-
-        for (dama = 1; dama <= movdama; dama++)
-        {
-            printf("Dama se moveu para esquerda %dx\n", dama);
-        }
-        break;
-    case 4:
-        printf("Quantas casas sua dama deve andar\n");
-        scanf("%d", &movdama);
-
-        for (dama = 1; dama <= movdama; dama++)
-        {
-            printf("Dama se moveu para direita %dx\n", dama);
-        }
-        break;
-    case 5:
-        printf("Quantas casas sua dama deve andar\n");
-        scanf("%d", &movdama);
-
-        for (dama = 1; dama <= movdama; dama++)
-        {
-            printf("Dama se moveu para (diagonal) cima, direita %dx\n", dama);
-        }        
-        break;
-    case 6:
-        printf("Quantas casas sua dama deve andar\n");
-        scanf("%d", &movdama);
-
-        for (dama = 1; dama <= movdama; dama++)
-        {
-            printf("Dama se moveu para (diagonal) cima, esquerda %dx\n", dama);
-        }
-        break;
-    case 7:
-        printf("Quantas casas sua dama deve andar\n");
-        scanf("%d", &movdama);
-
-        for (dama = 1; dama <= movdama; dama++)
-        {
-            printf("Dama se moveu para (diagonal) baixo, direita %dx\n", dama);
-        }
-        break;
-    case 8:
-        printf("Quantas casas sua dama deve andar\n");
-        scanf("%d", &movdama);
-
-        for (dama = 1; dama <= movdama; dama++)
-        {
-            printf("Dama se moveu para (diagonal) baixo, esquerda %dx\n", dama);
-        }
-        break;
-    default:
-            printf("Opção invalida.\n");
-        break;
+    case 0: printf("Voltando..."); break;
+    case 1: mover("dama", "frente"); break;
+    case 2: mover("dama", "tras"); break;
+    case 3: mover("dama", "esquerda"); break;
+    case 4: mover("dama", "direita"); break;
+    case 5: mover("dama", "diagonal cima, direita"); break;
+    case 6: mover("dama", "diagonal cima esquerda"); break;
+    case 7: mover("dama", "diagonal baixo, direita"); break;
+    case 8: mover("dama", "diagonal baixo, esquerda"); break;    
+    default: printf("Opção invalida."); break;
     }
+    } while (escolha < 0 || escolha > 8);    
+}
+//#### MENU TORRE #####
+void torre (){
+    // variaveis criadas dentro de um void so existem dentro delas, por isso podem ser repetidas.
+    int escolha;
 
-    } while (escolha1 < 0 || escolha1 > 8);
-        break;
-        //opção para movimentar o bispo
-    case 'B':
-    case 'b':
-       do {
+    do
+    {
+    printf("\nEscolha qual movimento vc quer que sua torre faça.\n");
+    printf("0: Voltar ao menu de escolha.\n");
+    printf("1: Frente.\n");
+    printf("2: Tras\n");
+    printf("3: Esquerda\n");
+    printf("4: Direita\n");
+    printf("Digite (0, 1, 2, 3 ou 4)\n");
+    scanf("%d", &escolha);
+
+    switch (escolha)
+    {
+    case 0: printf("Voltando..."); break;
+    case 1: mover("torre", "frente"); break;
+    case 2: mover("torre", "tras"); break;
+    case 3: mover("torre", "esquerda"); break;
+    case 4: mover("torre", "direita"); break;
+    default: printf("Escolha invalida."); break;
+    }
+    } while (escolha < 0 || escolha > 4);
+}
+// ##### MENU BISPO #####
+void bispo(){
+
+    int escolha;
+
+    do
+    {
     printf("\nEscolha qual movimento vc quer que seu bispo faça.\n");
     printf("0: Voltar ao menu de escolha.\n");
     printf("1: diagonal cima, direita.\n");
@@ -198,60 +90,25 @@ int main(){
     printf("3: diagonal baixo, direita\n");
     printf("4: diagonal baixo, esquerda\n");
     printf("Digite (0, 1, 2, 3 ou 4)\n");
-    scanf("%d", &escolha2);
+    scanf("%d", &escolha);
 
-    switch (escolha2)
+    switch (escolha)
     {
-    case 0: 
-        printf("\nVoltando ao menu de escolha...\n");
-        break;
-    case 1:
-        printf("Quantas casas seu bispo deve andar\n");
-        scanf("%d", &movbispo);
-
-        for (bispo = 1; bispo <= movbispo; bispo++)
-        {
-            printf("bispo se moveu para (diagonal) cima, direita %dx\n", bispo);
-        }        
-        break;
-    case 2:
-        printf("Quantas casas seu bispo deve andar\n");
-        scanf("%d", &movbispo);
-
-        for (bispo = 1; bispo <= movbispo; bispo++)
-        {
-            printf("bispo se moveu para (diagonal) cima, esquerda %dx\n", bispo);
-        }
-        break;
-    case 3:
-        printf("Quantas casas seu bispo deve andar\n");
-        scanf("%d", &movbispo);
-
-        for (bispo = 1; bispo <= movbispo; bispo++)
-        {
-            printf("bispo se moveu para (diagonal) baixo, direita %dx\n", bispo);
-        }
-        break;
-    case 4:
-        printf("Quantas casas seu bispo deve andar\n");
-        scanf("%d", &movbispo);
-
-        for (bispo = 1; bispo <= movbispo; bispo++)
-        {
-            printf("Bispo se moveu para (diagonal) baixo, esquerda %dx\n", bispo);
-        }
-        break;
-    default:
-            printf("Opção invalida.\n");
-        break;
+    case 0: printf("Voltando..."); break;
+    case 1: mover("bispo", "diagonal cima, direita"); break;
+    case 2: mover("bispo", "diagonal cima, esquerda"); break;
+    case 3: mover("bispo", "diagonal baixo, direita"); break;
+    case 4: mover("bispo", "diagonal baixo, esquerda"); break;
+    default: printf("Opção invalida."); break;
     }
+    } while (escolha < 0 || escolha > 4);    
+}
+//##### MENU CAVALO #####
+void cavalo (){
 
-    } while (escolha2 < 0 || escolha2 > 4);
-        break;
-        //Movimento do cavalo
-    case 'C':
-    case 'c':
-        do
+    int cavalo1, movcavalo, escolha;
+
+    do
         {
         printf("\nEscolha qual movimento vc quer que seu cavalo faça.\n");
         printf("0: Voltar ao menu de escolha.\n");
@@ -260,17 +117,16 @@ int main(){
         printf("3: baixo, baixo, direita\n");
         printf("4: baixo, baixo, esquerda\n");
         printf("Digite (0, 1, 2, 3 ou 4)\n");
-        scanf("%d", &escolha3);
+        scanf("%d", &escolha);
 
-        switch (escolha3)
+        switch (escolha)
         {
         case 0: 
-            printf("\nVoltando ao menu de escolha...\n");
-        break;
+            printf("\nVoltando...\n");
         case 1:
-        cavalo = 1;
+        cavalo1 = 1;
             printf("\nO cavalo se moveu:\n");
-            while (cavalo--)
+            while (cavalo1--)
             {
                 for (movcavalo = 0; movcavalo < 2; movcavalo++)
                 {
@@ -280,9 +136,9 @@ int main(){
             }            
         break;
         case 2:
-        cavalo = 1;
+        cavalo1 = 1;
              printf("\nO cavalo se moveu:\n");
-            while (cavalo--)
+            while (cavalo1--)
             {
                 for (movcavalo = 0; movcavalo < 2; movcavalo++)
                 {
@@ -292,9 +148,9 @@ int main(){
             }            
         break;
         case 3:
-        cavalo = 1;
+        cavalo1 = 1;
          printf("\nO cavalo se moveu:\n");
-            while (cavalo--)
+            while (cavalo1--)
             {
                 for (movcavalo = 0; movcavalo < 2; movcavalo++)
                 {
@@ -304,9 +160,9 @@ int main(){
             }
         break;
         case 4:
-        cavalo = 1;
+        cavalo1 = 1;
          printf("\nO cavalo se moveu:\n");
-            while (cavalo--)
+            while (cavalo1--)
             {
                 for (movcavalo = 0; movcavalo < 2; movcavalo++)
                 {
@@ -319,16 +175,44 @@ int main(){
                 printf("Opção invalida.\n");
             break;
         }
-
-        } while (escolha3 < 0 || escolha3 > 4);
-        break;
-    default:
-        printf("Opção invalida.\n");
-        break;
+        } while (escolha < 0 || escolha > 4);
     }
-    } while (escolha0 != 's' && escolha0 != 'S');
-    
-    printf("\n     Saindo...");
 
-    return 0;
-}
+    //##### FUNçÂO PRINCIPAL #####
+    int main (){
+        // variavel
+        char escolha0;
+        do
+        {
+        printf("\nqual peça vc deseja mover.\n");
+        printf("S: sair\n");
+        printf("D: dama\n");
+        printf("B: bispo\n");
+        printf("T: torre\n");
+        printf("C: Cavalo\n");
+        printf("Escolha S, D, B ou T:");
+        scanf("%s", &escolha0);
+
+        switch (escolha0)
+        {
+        case 'D':
+        case 'd': dama(); 
+            break;
+        case 'T':
+        case 't': torre();
+            break;
+        case 'B':
+        case 'b': bispo();
+            break;
+        case 'C':
+        case 'c': cavalo();
+            break;
+        case 'S':
+        case 's': printf("Saindo...\n");
+            break;
+        default: printf("Opcao invalida!\n");
+        }
+        } while (escolha0 != 's' && escolha0 != 'S');
+
+        return 0;
+    }
